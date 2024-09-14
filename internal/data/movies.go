@@ -6,7 +6,7 @@ import (
 	"greenlight.mason.net/internal/validator"
 )
 
-type Movie struct { // 수정
+type Movie struct {
 	ID       int64     `json:"id"`
 	CreateAt time.Time `json:"-"`
 	Title    string    `json:"title"`
