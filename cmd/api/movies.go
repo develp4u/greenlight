@@ -12,9 +12,8 @@ import (
 func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Request) {
 	// 익명 구조체 선언
 	var input struct {
-		Title string `json:"title"`
-		Year  int32  `json:"year"`
-		//Runtime int32    `json:"runtime"`
+		Title   string       `json:"title"`
+		Year    int32        `json:"year"`
 		Runtime data.Runtime `json:"runtime"`
 		Genres  []string     `json:"genres"`
 	}
