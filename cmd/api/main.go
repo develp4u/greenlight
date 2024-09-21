@@ -31,6 +31,7 @@ func main() {
 
 	flag.IntVar(&cfg.port, "port", 4000, "api server port")
 	flag.StringVar(&cfg.env, "env", "development", "operation environment (development|staging|production)")
+
 	flag.Parse()
 
 	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
@@ -52,8 +53,8 @@ func main() {
 	logger.Info("starting server", "addr", srv.Addr, "env", cfg.env)
 
 	err := srv.ListenAndServe()
-	logger.Error(err.Error())
+	if err != nil {
+		logger.Error(err.Error())
+	}
 	os.Exit(1)
-
-	//fmt.Printf("%+v", app)ﬁ
 }
